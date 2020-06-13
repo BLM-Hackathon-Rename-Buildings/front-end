@@ -5,7 +5,7 @@ import './Header.css';
 export default function App() {
   return (
     <div>
-      <nav class="home-nav">
+      <nav className="home-nav">
         <ul>
           <li>
             <Link to="/">Home</Link>
