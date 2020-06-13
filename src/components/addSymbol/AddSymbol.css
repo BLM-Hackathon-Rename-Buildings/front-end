@@ -1,0 +1,13 @@
+.pin-map {
+  width: 50%;
+  overflow: hidden;
+  position: absolute;
+}
+.side-form {
+  position: absolute;
+  background-color: grey;
+  width: 300px;
+  height: 100%;
+  right: 0px;
+  z-index: 999;
+}
