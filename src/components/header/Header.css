@@ -1,0 +1,29 @@
+.home-nav {
+  text-align: center;
+  padding: 20px;
+  background-color: black;
+  overflow: hidden;
+}
+
+.home-nav li {
+  float: left;
+  list-style: none;
+  margin: 0px;
+  padding: 2px 20px;
+  color: white;
+}
+
+.home-nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.home-nav a:hover {
+  background: blue;
+  padding: 10px 5px;
+  text-decoration: none;
+  color: white;
+}
