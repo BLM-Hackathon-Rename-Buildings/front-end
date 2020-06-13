@@ -1,14 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
+import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import { Icon } from "leaflet";
 import "./Map.css";
 
-class Map extends Component {
-  render() {
-    return (
-      <div>
-        <h1>You are now viewing buildings in {this.props.city}</h1>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <Map center={[45.4, -75.7]} zoom={12}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      />
+    </Map>
+  );
 }
-
-export default Map;
