@@ -7,7 +7,7 @@ class AddSymbol extends Component {
   render() {
     return (
       <form>
-        <label for="name">Symbol Name:</label>
+        <label htmlFor="name">Symbol Name:</label>
         <br />
         <input
           type="text"
@@ -16,7 +16,7 @@ class AddSymbol extends Component {
           placeholder="i.e. Confederate Monument"
         />
         <br />
-        <label for="city">City:</label>
+        <label htmlFor="city">City:</label>
         <br />
         <input
           type="text"
@@ -25,7 +25,7 @@ class AddSymbol extends Component {
           placeholder="i.e. Albertville"
         />
         <br />
-        <label for="state">State:</label>
+        <label htmlFor="state">State:</label>
         <br />
         <select id="state" name="state">
           {Object.keys(states).map((stateCode) => {
@@ -38,7 +38,7 @@ class AddSymbol extends Component {
           })}
         </select>
         <br />
-        <label for="county">County:</label>
+        <label htmlFor="county">County:</label>
         <br />
         <input
           type="text"
@@ -47,11 +47,11 @@ class AddSymbol extends Component {
           placeholder="i.e. Marshall"
         />
         <br />
-        <label for="zip">Zip Code:</label>
+        <label htmlFor="zip">Zip Code:</label>
         <br />
         <input type="text" id="zip" name="zip" placeholder="i.e. 35951" />
         <br />
-        <label for="latitude">Latitude</label>
+        <label htmlFor="latitude">Latitude</label>
         <br />
         <input
           type="text"
@@ -60,7 +60,7 @@ class AddSymbol extends Component {
           placeholder="i.e. 34.268061"
         />
         <br />
-        <label for="longitude">Longitude</label>
+        <label htmlFor="longitude">Longitude</label>
         <br />
         <input
           type="text"
@@ -69,7 +69,7 @@ class AddSymbol extends Component {
           placeholder="i.e. -86.210379"
         />
         <br />
-        <label for="symbol">Symbol Type:</label>
+        <label htmlFor="symbol">Symbol Type:</label>
         <br />
         <select id="symbol" name="symbol">
           {Object.keys(symbolChoices).map((symbol) => {
@@ -82,7 +82,7 @@ class AddSymbol extends Component {
           })}
         </select>
         <br />
-        <label for="petition">Petition Link:</label>
+        <label htmlFor="petition">Petition Link:</label>
         <br />
         <input
           type="text"
@@ -91,7 +91,7 @@ class AddSymbol extends Component {
           placeholder="i.e. https://www.change.org/"
         />
         <br />
-        <label for="photo">Photo:</label>
+        <label htmlFor="photo">Photo:</label>
         <br />
         <input
           type="file"
