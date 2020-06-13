@@ -1,29 +1,32 @@
 import React from "react";
 import PinMap from "../pinmap/PinMap";
-// import "./PinMap.css";
+import SideBar from "../sidebar/SideBar";
+import "./Explore.css";
 
 export default class Explore extends React.Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //   selectedPin: null
-    // };
+    this.state = {
+      currentMonument: null
+    };
   }
 
-  // click(monument){
-  //   console.log("clicked: " + monument.id);
-  //   this.props.onPinClicked(monument);
-  // }
-
-  test(monument){
-    console.log("click test!");
-    console.log(monument.id);
+  setMonument(monument){
+    this.setState({currentMonument: monument});
   }
 
   render(){
     return (
       <div>
-      <PinMap city="Washington, DC" onPinClicked={this.test.bind(this)} />
+      <PinMap className="pin-map"
+              city="Washington, DC"
+              onPinClicked={this.setMonument.bind(this)}>
+      </PinMap>
+      
+      <SideBar className="side-bar"
+               currentMonumentName={ this.state.currentMonument ? this.state.currentMonument.name :
+                                                                 "" }>
+      </SideBar>
       </div>
     );
   }
