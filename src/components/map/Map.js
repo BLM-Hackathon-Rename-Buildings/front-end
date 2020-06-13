@@ -7,12 +7,12 @@ import "./Map.css";
 export default function App() {
   return (
     <Map center={[38, -96]} zoom={5}>
-      {testData.features.map(location => (
+      {testData.monuments.map(monument => (
         <Marker
-          key={location.properties.PARK_ID}
+          key={monument.id}
           position={[
-            location.geometry.coordinates[1],
-            location.geometry.coordinates[0]
+            monument.latitude,
+            monument.longitude
           ]}
         />
       ))}
