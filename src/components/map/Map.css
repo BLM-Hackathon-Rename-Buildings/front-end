@@ -1,0 +1,10 @@
+.leaflet-tile-pane {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+/* .leaflet-control-container {
+  position: absolute;
+  left: 10px;
+  bottom: 80px;
+} */
