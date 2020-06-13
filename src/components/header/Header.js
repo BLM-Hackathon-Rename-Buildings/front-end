@@ -1,11 +1,11 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "./Header.css";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import './Header.css';
 
 export default function App() {
   return (
     <div>
-      <nav>
+      <nav class="home-nav">
         <ul>
           <li>
             <Link to="/">Home</Link>

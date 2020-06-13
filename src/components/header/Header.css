@@ -1,0 +1,11 @@
+.home-nav {
+  text-align: center;
+  /* flex: display; */
+  padding: 13px 20px;
+  background-color: blueviolet;
+}
+
+.home-nav a {
+  display: in-line block;
+  text-align: center;
+}
