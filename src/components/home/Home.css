@@ -1,0 +1,11 @@
+.home-about {
+  display: flex;
+  justify-content: center;
+}
+.about-img {
+  width: 400px;
+  height: 400px;
+}
+article {
+  width: 400px;
+}
