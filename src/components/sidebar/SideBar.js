@@ -28,30 +28,20 @@ class SideBarComponent extends React.Component {
           className="symbol-image"
         />
         <div className="symbol-info">
-          <div className="symbol-info-field">
+          <h2 className="symbol-title-field">{this.props.match.params.id}</h2>
+          <p className="symbol-info-field">
             {' '}
-            <b>Name:</b> {this.props.match.params.id}{' '}
-          </div>
-          <div className="symbol-info-field">
-            {' '}
-            <b>Type: </b>
-            {this.props.monumentType}{' '}
-          </div>
-          <div className="symbol-info-field">
-            {' '}
-            <b>Info:</b>
-            This is dummy data. Not sure what we are going to put here but for
-            now this is just gibberish. I wonder how many lines this will have
-            on here. 'This is dummy data. Not sure what we are going to put here
-            but for now this is just gibberish. I wonder how many lines this
-            will have on here. 'This is dummy data. Not sure what we are going
-            to put here but for now this is just gibberish. I wonder how many
-            lines this will have on here.
-          </div>
-          <div className="center-button">
-            <button className="remove-button">How to Get Statue Removed</button>
-          </div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
+
+        <button className="remove-button">REMOVE</button>
       </aside>
     );
   }
