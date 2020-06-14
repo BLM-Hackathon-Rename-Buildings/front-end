@@ -43,15 +43,15 @@ class PinMapComponent extends React.Component {
 function MarkerButton(props) {
   const history = useHistory();
 
-  function handleClick(id) {
-    history.push("/detail/" + id);
+  function handleClick(monument) {
+    history.push("/detail/" + monument.id);
     props.onPinClicked(monument.latitude, monument.longitude);
   }
   if (props.monument.removed) {
     return (
       <Marker
         position={[props.monument.latitude, props.monument.longitude]}
-        onClick={() => handleClick(props.monument.id)}
+        onClick={() => handleClick(props.monument)}
         icon={iconRemoved}
       />
     );
@@ -59,19 +59,11 @@ function MarkerButton(props) {
     return (
       <Marker
         position={[props.monument.latitude, props.monument.longitude]}
-        onClick={() => handleClick(props.monument.id)}
+        onClick={() => handleClick(props.monument)}
         icon={iconExisting}
       />
     );
   }
-}
-
-  return (
-    <Marker
-      position={[props.monument.latitude, props.monument.longitude]}
-      onClick={() => handleClick(props.monument)}
-    />
-  );
 }
 
 function mapStateToProps(state) {
