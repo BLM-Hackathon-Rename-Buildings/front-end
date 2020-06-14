@@ -10,8 +10,8 @@ class Home extends Component {
           src={require("../../assets/confederate-statue.jpeg")}
           alt="Confederate statue covered in red graffiti."
         />
-        <article class="about-text">
-          <h1 class="about-header"> RENAME. RECLAIM.</h1>
+      <article className="about-text">
+          <h1 className="about-header"> RENAME. RECLAIM.</h1>
           <h2>About</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

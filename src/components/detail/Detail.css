@@ -1,8 +1,10 @@
+
+
 .side-bar {
   position: fixed;
   background-color: var(--color-gray);
   color: var(--color-white);
-  width: 400px;
+  width: 30vw;
   height: 88vh;
   right: 0px;
   z-index: 999;
@@ -40,4 +42,36 @@
   text-align: center;
   border: none;
   background-size: 300% 100%;
+}
+
+.action-takeover {
+  display: flex;
+  background-color: var(--color-dark-red);
+  width: 70vw;
+  height: 100vh;
+}
+
+.close-button{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: var(--color-white);
+}
+
+.close-icon{
+  width: 50px;
+  height: auto;
+  background: none;
+}
+
+.action-text {
+  width: 500px;
+  padding: 50px;
+  color: var(--color-white);
+}
+
+.action-header{
+  font-size: 50px;
 }

@@ -14,6 +14,7 @@ import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
 import PinMap from './components/pinmap/PinMap';
 import SideBar from './components/sidebar/SideBar';
+import Detail from './components/detail/Detail';
 import { fetchAllSymbols } from './reducers/SymbolsReducer';
 
 class InitialApp extends Component {
@@ -34,10 +35,16 @@ class InitialApp extends Component {
 
         <Header className="header" />
 
+        <div className="map-wrapper">
+          <PinMap className="pin-map"></PinMap>
+        </div>
+
+        <Header className="header" />
+
         <div className="above-map">
           <Route path="/about" exact component={Home}></Route>
           <Route path="/add" exact component={AddSymbol}></Route>
-          <Route path="/detail/:id" exact component={SideBar}></Route>
+          <Route path="/detail/:id" exact component={Detail}></Route>
         </div>
       </div>
     );
