@@ -12,11 +12,12 @@ const getSymbol = (symbol) => {
 export function fetchSymbol(id) {
   return async (dispatch, getState) => {
     try {
-      console.log('annoying', id);
+      console.log('the id passed:', id);
       const { data } = await axios.get(
-        `http://rename-reclaim.herokuapp.com/api/symbols/${id}`
+        `http://rename-reclaim.herokuapp.com/api/symbols/${id}/`
       );
       dispatch(getSymbol(data));
+      console.log('one user', data);
     } catch (error) {
       dispatch(console.error(error));
     }

@@ -18,7 +18,7 @@ class SideBarComponent extends React.Component {
   }
 
   render() {
-    console.log('hi', this.props.symbol);
+    console.log('symbol:', this.props.symbol);
     return (
       <aside className="side-bar">
         {this.state.monumentName}
