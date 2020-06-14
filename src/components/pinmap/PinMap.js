@@ -1,57 +1,47 @@
-import React from "react";
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import { Icon } from "leaflet";
-import { iconExisting, iconRemoved } from "./Icons";
-import { connect } from "react-redux";
-import * as testData from "./testdata.json";
-import { useHistory } from "react-router-dom";
-import "./PinMap.css";
+import React from 'react';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Icon } from 'leaflet';
+import { iconExisting, iconRemoved } from './Icons';
+import { connect } from 'react-redux';
+import * as testData from './testdata.json';
+import { useHistory } from 'react-router-dom';
+import './PinMap.css';
 
 class PinMapComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedPin: null,
-      zoom: 5,
-      center: [38, -96],
     };
   }
 
-  handleZoom(lat, long) {
-    this.setState({
-      zoom: 14,
-      center: [lat, long],
-    });
-  }
-
   render() {
-    return (
-      <Map center={this.state.center} zoom={this.state.zoom}>
-        {testData.monuments.map((monument) => (
-          <MarkerButton
-            key={monument.id}
-            monument={monument}
-            onPinClicked={this.handleZoom.bind(this)}
-          />
-        ))}
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      </Map>
-    );
+    console.log('this is printing the symbols object', this.props.symbols.data);
+    if (this.props.symbols.data) {
+      return (
+        <Map center={[38, -96]} zoom={5}>
+          {this.props.symbols.data.map((monument) => (
+            <MarkerButton key={monument.id} monument={monument} />
+          ))}
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        </Map>
+      );
+    }
+    return null;
   }
 }
 
 function MarkerButton(props) {
   const history = useHistory();
 
-  function handleClick(monument) {
-    history.push("/detail/" + monument.id);
-    props.onPinClicked(monument.latitude, monument.longitude);
+  function handleClick(id) {
+    history.push('/detail/' + id);
   }
   if (props.monument.removed) {
     return (
       <Marker
         position={[props.monument.latitude, props.monument.longitude]}
-        onClick={() => handleClick(props.monument)}
+        onClick={() => handleClick(props.monument.id)}
         icon={iconRemoved}
       />
     );
@@ -59,7 +49,7 @@ function MarkerButton(props) {
     return (
       <Marker
         position={[props.monument.latitude, props.monument.longitude]}
-        onClick={() => handleClick(props.monument)}
+        onClick={() => handleClick(props.monument.id)}
         icon={iconExisting}
       />
     );

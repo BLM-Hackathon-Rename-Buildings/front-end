@@ -25,26 +25,7 @@ export default class Explore extends React.Component {
           city="Washington, DC"
           onPinClicked={this.setMonument.bind(this)}
         ></PinMap>
-        {this.state.showInfo ? (
-          <SideBar
-            className="side-bar"
-            currentMonumentName={
-              this.state.currentMonument ? this.state.currentMonument.name : ''
-            }
-            currentMonumentPhoto={
-              this.state.currentMonument && this.state.currentMonument.photo
-                ? this.state.currentMonument.photo
-                : 'https://media.washtimes.com/media/image/2018/08/08/8_8_2018_ap-172595843326498201.jpg'
-            }
-            currentMonumentType={
-              this.state.currentMonument
-                ? this.state.currentMonument.symbol_type
-                : ''
-            }
-          ></SideBar>
-        ) : (
-          ''
-        )}
+        {this.state.showInfo ? <SideBar className="side-bar"></SideBar> : ''}
       </div>
     );
   }
