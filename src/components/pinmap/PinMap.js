@@ -4,6 +4,7 @@ import { Icon } from "leaflet";
 import { iconExisting, iconRemoved } from "./Icons";
 import { connect } from "react-redux";
 import * as testData from "./testdata.json";
+import { useHistory } from "react-router-dom";
 import "./PinMap.css";
 
 class PinMapComponent extends React.Component {
@@ -14,38 +15,39 @@ class PinMapComponent extends React.Component {
     };
   }
 
-  click(monument) {
-    console.log("clicked: " + monument.id);
-    console.log(monument);
-    this.props.onPinClicked(monument);
-  }
-
   render() {
     return (
       <Map center={[38, -96]} zoom={5}>
-        {testData.monuments.map((monument) => {
-          if (monument.removed) {
-            return (
-              <Marker
-                key={monument.id}
-                position={[monument.latitude, monument.longitude]}
-                onClick={this.click.bind(this, monument)}
-                icon={iconRemoved}
-              />
-            );
-          } else {
-            return (
-              <Marker
-                key={monument.id}
-                position={[monument.latitude, monument.longitude]}
-                onClick={this.click.bind(this, monument)}
-                icon={iconExisting}
-              />
-            );
-          }
-        })}
+        {testData.monuments.map((monument) => (
+          <MarkerButton key={monument.id} monument={monument} />
+        ))}
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       </Map>
+    );
+  }
+}
+
+function MarkerButton(props) {
+  const history = useHistory();
+
+  function handleClick(id) {
+    history.push("/detail/" + id);
+  }
+  if (props.monument.removed) {
+    return (
+      <Marker
+        position={[props.monument.latitude, props.monument.longitude]}
+        onClick={() => handleClick(props.monument.id)}
+        icon={iconRemoved}
+      />
+    );
+  } else {
+    return (
+      <Marker
+        position={[props.monument.latitude, props.monument.longitude]}
+        onClick={() => handleClick(props.monument.id)}
+        icon={iconExisting}
+      />
     );
   }
 }
