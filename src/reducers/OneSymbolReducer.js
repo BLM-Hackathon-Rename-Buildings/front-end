@@ -16,6 +16,7 @@ export function fetchSymbol(id) {
         `http://rename-reclaim.herokuapp.com/api/symbols/${id}/`
       );
       dispatch(getSymbol(data));
+      console.log('fetch symbol for', id, 'was successful');
     } catch (error) {
       dispatch(console.error(error));
     }

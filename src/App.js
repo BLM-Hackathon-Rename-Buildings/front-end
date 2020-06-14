@@ -35,12 +35,6 @@ class InitialApp extends Component {
 
         <Header className="header" />
 
-        <div className="map-wrapper">
-          <PinMap className="pin-map"></PinMap>
-        </div>
-
-        <Header className="header" />
-
         <div className="above-map">
           <Route path="/about" exact component={Home}></Route>
           <Route path="/add" exact component={AddSymbol}></Route>
