@@ -46,7 +46,7 @@ class InitialApp extends Component {
           </div>
 
           <div className="above-map">
-            <Route path="/" exact component={Home}></Route>
+            <Route path="/about" exact component={Home}></Route>
             <Route path="/add" exact component={AddSymbol}></Route>
             <Route path="/detail/:id" exact component={SideBar}></Route>
           </div>

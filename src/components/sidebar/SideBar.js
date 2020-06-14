@@ -4,9 +4,7 @@ import "./SideBar.css";
 export default class SideBar extends React.Component {
   constructor(props){
     super(props);
-    console.log("param: " + this.props.match.params.id);
   }
-
 
   render(){
     return (

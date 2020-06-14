@@ -14,11 +14,6 @@ class PinMapComponent extends React.Component {
     };
   }
 
-  click(monument) {
-    console.log('clicked: ' + monument.id);
-    this.props.onPinClicked(monument);
-  }
-
   render() {
     return (
       <Map center={[38, -96]} zoom={5}>
@@ -34,14 +29,8 @@ class PinMapComponent extends React.Component {
 function MarkerButton(props) {
     const history = useHistory();
 
-
     function handleClick(id) {
-      console.log("clicking: " + id);
       history.push("/detail/" + id);
-    }
-
-    function click(){
-      console.log("click!")
     }
 
     return (
