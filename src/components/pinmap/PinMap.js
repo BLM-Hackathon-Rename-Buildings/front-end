@@ -12,26 +12,17 @@ class PinMapComponent extends React.Component {
     super(props);
     this.state = {
       selectedPin: null,
-      zoom: 5,
-      center: [38, -96],
     };
-  }
-
-  handleZoom(lat, long) {
-    this.setState({
-      zoom: 14,
-      center: [lat, long],
-    });
   }
 
   render() {
     return (
-      <Map center={this.state.center} zoom={this.state.zoom}>
+      <Map center={this.props.center} zoom={this.props.zoom}>
         {testData.monuments.map((monument) => (
           <MarkerButton
             key={monument.id}
             monument={monument}
-            onPinClicked={this.handleZoom.bind(this)}
+            handleZoomIn={this.props.handleZoomIn}
           />
         ))}
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -45,7 +36,7 @@ function MarkerButton(props) {
 
   function handleClick(monument) {
     history.push("/detail/" + monument.id);
-    props.onPinClicked(monument.latitude, monument.longitude);
+    props.handleZoomIn(monument.latitude, monument.longitude);
   }
   if (props.monument.removed) {
     return (
