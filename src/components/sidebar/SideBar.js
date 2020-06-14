@@ -1,5 +1,5 @@
-import React from "react";
-import "./SideBar.css";
+import React from 'react';
+import './SideBar.css';
 
 //this.props.match.params.id
 
@@ -13,7 +13,7 @@ export default class SideBar extends React.Component {
     };
   }
 
-  render(){
+  render() {
     return (
       <aside className="side-bar">
             {this.state.monumentName}
@@ -51,8 +51,5 @@ export default class SideBar extends React.Component {
     );
   }
 }
-
-
-
 //@carly to do: move this attribution somewhere else
 // attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
