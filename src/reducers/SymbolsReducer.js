@@ -36,7 +36,7 @@ export function addSymbolCall(symbol) {
 export const fetchAllSymbols = () => {
   return async (dispatch) => {
     const symbols = await axios.get(
-      'http://dummy.restapiexample.com/api/v1/employees'
+      'http://rename-reclaim.herokuapp.com/api/symbols/all/'
     );
     dispatch(gotAllSymbols(symbols));
     console.log('dispatch successful');
@@ -59,7 +59,7 @@ const allSymbols = [];
 export const symbolsReducer = (state = allSymbols, action) => {
   switch (action.type) {
     case ADD_SYMBOL:
-      return [...state, action.item];
+      return [...state, action.symbol];
     case GET_SYMBOLS:
       return action.symbols;
     default:
