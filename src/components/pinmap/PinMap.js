@@ -1,6 +1,7 @@
 import React from "react";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
+import { iconExisting, iconRemoved } from "./Icons";
 import { connect } from "react-redux";
 import * as testData from "./testdata.json";
 import { useHistory } from "react-router-dom";
@@ -42,10 +43,28 @@ class PinMapComponent extends React.Component {
 function MarkerButton(props) {
   const history = useHistory();
 
-  function handleClick(monument) {
-    history.push("/detail/" + monument.id);
+  function handleClick(id) {
+    history.push("/detail/" + id);
     props.onPinClicked(monument.latitude, monument.longitude);
   }
+  if (props.monument.removed) {
+    return (
+      <Marker
+        position={[props.monument.latitude, props.monument.longitude]}
+        onClick={() => handleClick(props.monument.id)}
+        icon={iconRemoved}
+      />
+    );
+  } else {
+    return (
+      <Marker
+        position={[props.monument.latitude, props.monument.longitude]}
+        onClick={() => handleClick(props.monument.id)}
+        icon={iconExisting}
+      />
+    );
+  }
+}
 
   return (
     <Marker

@@ -7,103 +7,83 @@ class AddSymbol extends Component {
   render() {
     return (
       <aside className="side-bar">
-        <form>
-          <label htmlFor="name">Symbol Name:</label>
-          <br />
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="i.e. Confederate Monument"
-          />
-          <br />
-          <label htmlFor="city">City:</label>
-          <br />
-          <input
-            type="text"
-            id="city"
-            name="city"
-            placeholder="i.e. Albertville"
-          />
-          <br />
-          <label htmlFor="state">State:</label>
-          <br />
-          <select id="state" name="state">
-            {Object.keys(states).map((stateCode) => {
-              console.log(stateCode, states[stateCode]);
-              return (
-                <option value={stateCode} key={stateCode}>
-                  {states[stateCode]}
-                </option>
-              );
-            })}
-          </select>
-          <br />
-          <label htmlFor="county">County:</label>
-          <br />
-          <input
-            type="text"
-            id="county"
-            name="county"
-            placeholder="i.e. Marshall"
-          />
-          <br />
-          <label htmlFor="zip">Zip Code:</label>
-          <br />
-          <input type="text" id="zip" name="zip" placeholder="i.e. 35951" />
-          <br />
-          <label htmlFor="latitude">Latitude</label>
-          <br />
-          <input
-            type="text"
-            id="latitude"
-            name="latitude"
-            placeholder="i.e. 34.268061"
-          />
-          <br />
-          <label htmlFor="longitude">Longitude</label>
-          <br />
-          <input
-            type="text"
-            id="longitude"
-            name="longitude"
-            placeholder="i.e. -86.210379"
-          />
-          <br />
-          <label htmlFor="symbol">Symbol Type:</label>
-          <br />
-          <select id="symbol" name="symbol">
-            {Object.keys(symbolChoices).map((symbol) => {
-              console.log(symbol, symbolChoices[symbol]);
-              return (
-                <option value={symbol} key={symbol}>
-                  {symbolChoices[symbol]}
-                </option>
-              );
-            })}
-          </select>
-          <br />
-          <label htmlFor="petition">Petition Link:</label>
-          <br />
-          <input
-            type="text"
-            id="petition"
-            name="petition"
-            placeholder="i.e. https://www.change.org/"
-          />
-          <br />
-          <label htmlFor="photo">Photo:</label>
-          <br />
-          <input
-            type="file"
-            id="photo"
-            name="photo"
-            accept="image/png, image/jpeg"
-          ></input>
-          <br />
-          <br />
-          <input type="submit" value="Submit" />
+        <form class="add-form">
+
+          <div class="form-input">
+            <label htmlFor="name">Monument Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="i.e. Confederate Monument"
+            />
+          </div>
+
+          <div class="form-input">
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              placeholder="i.e. Albertville"
+            />
+          </div>
+
+          <div class="form-input">
+            <label htmlFor="state">State</label>
+            <select id="state" name="state">
+              {Object.keys(states).map((stateCode) => {
+                console.log(stateCode, states[stateCode]);
+                return (
+                  <option value={stateCode} key={stateCode}>
+                    {states[stateCode]}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
+          <div class="form-input">
+            <label htmlFor="zip">Zip</label>
+            <input type="text" id="zip" name="zip" placeholder="i.e. 35951" />
+          </div>
+
+          <div class="form-input">
+            <label htmlFor="symbol">Symbol Type:</label>
+            <select id="symbol" name="symbol">
+              {Object.keys(symbolChoices).map((symbol) => {
+                console.log(symbol, symbolChoices[symbol]);
+                return (
+                  <option value={symbol} key={symbol}>
+                    {symbolChoices[symbol]}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
+          <div class="form-input">
+            <label htmlFor="petition">Petition</label>
+            <input
+              type="text"
+              id="petition"
+              name="petition"
+              placeholder="i.e. https://www.change.org/"
+            />
+          </div>
+
+          <div class="form-input">
+            <label htmlFor="photo">Photo</label>
+            <input
+              type="file"
+              id="photo"
+              name="photo"
+              accept="image/png, image/jpeg"
+            ></input>
+          </div>
         </form>
+
+        <button className="add-button">ADD</button>
       </aside>
     );
   }

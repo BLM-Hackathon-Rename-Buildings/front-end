@@ -13,22 +13,7 @@ import { fetchAllSymbols } from './reducers/SymbolsReducer';
 class InitialApp extends Component {
   constructor(props){
     super(props);
-    // this.setMonument = this.setMonument.bind(this)
-    // this.state = {
-    //   currentMonument: null
-    // };
   }
-
-  // setMonument(monument){
-  //   this.setState({currentMonument: monument});
-  //
-  //   const history = useHistory();
-  //
-  //   function click(){
-  //     history.push("/detail/" + monument.id);
-  //   }
-  // }
-
   componentDidMount() {
     this.props.fetchAllSymbols();
   }
@@ -37,26 +22,19 @@ class InitialApp extends Component {
     console.log('symbols test data', this.props.symbols);
     return (
       <div className="App">
-          <Header className="header"/>
+
 
           <div className="map-wrapper">
-              <PinMap className="pin-map"
-                      onPinClicked={this.setMonument}>
-              </PinMap>
+              <PinMap className="pin-map"></PinMap>
           </div>
+
+          <Header className="header"/>
 
           <div className="above-map">
             <Route path="/about" exact component={Home}></Route>
             <Route path="/add" exact component={AddSymbol}></Route>
             <Route path="/detail/:id" exact component={SideBar}></Route>
           </div>
-
-          {/*<SideBar
-            className="side-bar"
-            currentMonumentName={ this.state.currentMonument ? this.state.currentMonument.name :                                             "" }>
-          </SideBar>*/}
-
-        {/*<Footer />*/}
       </div>
     );
   }

@@ -7,12 +7,12 @@ class Home extends Component {
       <div className="home-about">
         <img
           className="about-img"
-          src={require("./about-logo.png")}
-          alt="Rename reclaim logo"
+          src={require("../../assets/confederate-statue.jpeg")}
+          alt="Confederate statue covered in red graffiti."
         />
-        <article>
-          <h1>RENAME RECLAIM</h1>
-          <h2>Title</h2>
+        <article class="about-text">
+          <h1 class="about-header"> RENAME. RECLAIM.</h1>
+          <h2>About</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
