@@ -16,18 +16,22 @@ class PinMapComponent extends React.Component {
   }
 
   render() {
-    return (
-      <Map center={this.props.center} zoom={this.props.zoom}>
-        {testData.monuments.map((monument) => (
-          <MarkerButton
-            key={monument.id}
-            monument={monument}
-            handleZoomIn={this.props.handleZoomIn}
-          />
-        ))}
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      </Map>
-    );
+    console.log("this is printing the symbols object", this.props.symbols.data);
+    if (this.props.symbols.data) {
+      return (
+        <Map center={this.props.center} zoom={this.props.zoom}>
+          {this.props.symbols.data.map((monument) => (
+            <MarkerButton
+              key={monument.id}
+              monument={monument}
+              handleZoomIn={this.props.handleZoomIn}
+            />
+          ))}
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        </Map>
+      );
+    }
+    return null;
   }
 }
 
