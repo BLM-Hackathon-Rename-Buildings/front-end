@@ -13,7 +13,6 @@ import AddSymbol from './components/addSymbol/AddSymbol';
 import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
 import PinMap from './components/pinmap/PinMap';
-import SideBar from './components/sidebar/SideBar';
 import Detail from './components/detail/Detail';
 import { fetchAllSymbols } from './reducers/SymbolsReducer';
 
