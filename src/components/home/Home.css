@@ -1,6 +1,9 @@
 .home-about {
   display: flex;
   justify-content: center;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
 }
 .about-img {
   width: 400px;
