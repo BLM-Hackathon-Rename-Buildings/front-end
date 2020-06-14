@@ -7,9 +7,9 @@ class AddSymbol extends Component {
   render() {
     return (
       <aside className="side-bar">
-        <form class="add-form">
+        <form className="add-form">
 
-          <div class="form-input">
+          <div className="form-input">
             <label htmlFor="name">Monument Name</label>
             <input
               type="text"
@@ -19,7 +19,7 @@ class AddSymbol extends Component {
             />
           </div>
 
-          <div class="form-input">
+          <div className="form-input">
             <label htmlFor="city">City</label>
             <input
               type="text"
@@ -29,7 +29,7 @@ class AddSymbol extends Component {
             />
           </div>
 
-          <div class="form-input">
+          <div className="form-input">
             <label htmlFor="state">State</label>
             <select id="state" name="state">
               {Object.keys(states).map((stateCode) => {
@@ -43,12 +43,12 @@ class AddSymbol extends Component {
             </select>
           </div>
 
-          <div class="form-input">
+          <div className="form-input">
             <label htmlFor="zip">Zip</label>
             <input type="text" id="zip" name="zip" placeholder="i.e. 35951" />
           </div>
 
-          <div class="form-input">
+          <div className="form-input">
             <label htmlFor="symbol">Symbol Type:</label>
             <select id="symbol" name="symbol">
               {Object.keys(symbolChoices).map((symbol) => {
@@ -62,7 +62,7 @@ class AddSymbol extends Component {
             </select>
           </div>
 
-          <div class="form-input">
+          <div className="form-input">
             <label htmlFor="petition">Petition</label>
             <input
               type="text"
@@ -72,7 +72,7 @@ class AddSymbol extends Component {
             />
           </div>
 
-          <div class="form-input">
+          <div className="form-input">
             <label htmlFor="photo">Photo</label>
             <input
               type="file"

@@ -7,7 +7,7 @@ import AddSymbol from "./components/addSymbol/AddSymbol";
 import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
 import PinMap from "./components/pinmap/PinMap";
-import SideBar from "./components/sidebar/SideBar";
+import Detail from "./components/detail/Detail";
 import { fetchAllSymbols } from './reducers/SymbolsReducer';
 
 class InitialApp extends Component {
@@ -33,7 +33,7 @@ class InitialApp extends Component {
           <div className="above-map">
             <Route path="/about" exact component={Home}></Route>
             <Route path="/add" exact component={AddSymbol}></Route>
-            <Route path="/detail/:id" exact component={SideBar}></Route>
+            <Route path="/detail/:id" exact component={Detail}></Route>
           </div>
       </div>
     );
