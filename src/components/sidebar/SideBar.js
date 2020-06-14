@@ -21,14 +21,13 @@ class SideBarComponent extends React.Component {
     console.log('symbol:', this.props.symbol);
     return (
       <aside className="side-bar">
-        {this.state.monumentName}
         <img
           src={this.state.monumentPhoto}
           alt="symbol"
           className="symbol-image"
         />
         <div className="symbol-info">
-          <h2 className="symbol-title-field">{this.props.match.params.id}</h2>
+          <h2 className="symbol-title-field">{this.props.symbol.name}</h2>
           <p className="symbol-info-field">
             {' '}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

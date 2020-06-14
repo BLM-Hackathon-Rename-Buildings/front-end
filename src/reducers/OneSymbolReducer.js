@@ -12,12 +12,10 @@ const getSymbol = (symbol) => {
 export function fetchSymbol(id) {
   return async (dispatch, getState) => {
     try {
-      console.log('the id passed:', id);
       const { data } = await axios.get(
         `http://rename-reclaim.herokuapp.com/api/symbols/${id}/`
       );
       dispatch(getSymbol(data));
-      console.log('one user', data);
     } catch (error) {
       dispatch(console.error(error));
     }
@@ -26,11 +24,11 @@ export function fetchSymbol(id) {
 
 const symbol = {};
 
-export default function (state = symbol, action) {
+export const oneSymbolReducer = (state = symbol, action) => {
   switch (action.type) {
     case GET_SYMBOL:
       return action.symbol;
     default:
       return state;
   }
-}
+};
