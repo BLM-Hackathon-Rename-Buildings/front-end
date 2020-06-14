@@ -21,16 +21,14 @@ class SideBarComponent extends React.Component {
     this.props.fetchSymbol(this.props.match.params.id);
   }
   remove() {
-    console.log('remove!');
-    this.setState((state) => ({
-      showActions: true,
+    this.setState(state => ({
+      showActions: true
     }));
   }
 
   close() {
-    console.log('close!');
-    this.setState((state) => ({
-      showActions: false,
+    this.setState(state => ({
+      showActions: false
     }));
   }
 
@@ -56,8 +54,7 @@ class SideBarComponent extends React.Component {
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
               reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              nulla pariatur. 
             </p>
           </div>
 
@@ -73,10 +70,7 @@ class SideBarComponent extends React.Component {
             <div className="action-takeover">
               <article className="action-text">
                 <button className="close-button" onClick={this.close}>
-                  <img
-                    className="close-icon"
-                    src={require('../../assets/x-icon.png')}
-                  />
+                  <img className="close-icon" src={require("../../assets/Cross.svg")}/>
                 </button>
                 <h1 className="action-header"> TAKE ACTION. </h1>
                 <h2>Petitions</h2>

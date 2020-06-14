@@ -1,12 +1,21 @@
-.side-bar {
+.add-side-bar {
   position: fixed;
   background-color: var(--color-gray);
   color: var(--color-white);
   width: 400px;
-  height: 88vh;
+  height: 87vh;
   right: 0px;
   z-index: 999;
   font: 16px;
+}
+
+.add-header{
+  font-size: 30px;
+  line-height: 30px;
+  margin: 0px;
+  margin-bottom: 20px;
+  width: 400px;
+
 }
 
 .add-form{
@@ -18,15 +27,16 @@
   padding-bottom: 15px;
 }
 
-input, select{
-  font-size: 20px;
-  line-height: 25px;
-  width: 300px;
+.add-input{
+  font-size: 16px;
+  line-height: 23px;
+  width: 250px;
 }
 
-label{
-  font-size: 20px;
-  line-height: 25px;
+.form-input label{
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--color-white);
 }
 
 .add-button {
