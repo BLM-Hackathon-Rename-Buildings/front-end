@@ -1,9 +1,10 @@
-import React from 'react';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import { Icon } from 'leaflet';
-import { connect } from 'react-redux';
-import * as testData from './testdata.json';
-import './PinMap.css';
+import React from "react";
+import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import { Icon } from "leaflet";
+import { iconExisting, iconRemoved } from "./Icons";
+import { connect } from "react-redux";
+import * as testData from "./testdata.json";
+import "./PinMap.css";
 
 class PinMapComponent extends React.Component {
   constructor(props) {
@@ -14,20 +15,35 @@ class PinMapComponent extends React.Component {
   }
 
   click(monument) {
-    console.log('clicked: ' + monument.id);
+    console.log("clicked: " + monument.id);
+    console.log(monument);
     this.props.onPinClicked(monument);
   }
 
   render() {
     return (
       <Map center={[38, -96]} zoom={5}>
-        {testData.monuments.map((monument) => (
-          <Marker
-            key={monument.id}
-            position={[monument.latitude, monument.longitude]}
-            onClick={this.click.bind(this, monument)}
-          />
-        ))}
+        {testData.monuments.map((monument) => {
+          if (monument.removed) {
+            return (
+              <Marker
+                key={monument.id}
+                position={[monument.latitude, monument.longitude]}
+                onClick={this.click.bind(this, monument)}
+                icon={iconRemoved}
+              />
+            );
+          } else {
+            return (
+              <Marker
+                key={monument.id}
+                position={[monument.latitude, monument.longitude]}
+                onClick={this.click.bind(this, monument)}
+                icon={iconExisting}
+              />
+            );
+          }
+        })}
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       </Map>
     );

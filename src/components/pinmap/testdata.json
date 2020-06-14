@@ -12,7 +12,7 @@
       "symbol_type": "highway_or_roadway",
       "petition_link": "",
       "approved": true,
-      "removed": false,
+      "removed": true,
       "photo": "",
       "honoree": 46,
       "contacts": []
@@ -97,7 +97,7 @@
       "symbol_type": "highway_or_roadway",
       "petition_link": "",
       "approved": true,
-      "removed": false,
+      "removed": true,
       "photo": "",
       "honoree": 91,
       "contacts": []
