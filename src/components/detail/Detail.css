@@ -6,8 +6,8 @@
   position: absolute;
   background-color: var(--color-gray);
   color: var(--color-white);
-  width: 300px;
-  height: 90vh;
+  width: 30vw;
+  height: 87vh;
   right: 0px;
   top: 0px;
   z-index: 999;
