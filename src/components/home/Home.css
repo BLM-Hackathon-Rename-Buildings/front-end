@@ -17,4 +17,20 @@
 
 .about-header{
   font-size: 50px;
+  line-height: 40px;
+}
+
+.about-title{
+  font-size: 30px;
+  line-height: 30px;
+  margin: 0;
+  margin-top: 40px;
+}
+
+.about-description, .about-credits{
+  line-height: 22px;
+}
+
+.about-credits a{
+  color: var(--color-white);
 }
