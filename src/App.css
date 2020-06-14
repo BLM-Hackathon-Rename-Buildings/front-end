@@ -1,6 +1,6 @@
 .pin-map{
-  z-index: 0;
-  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
 .header{
@@ -16,8 +16,9 @@
   z-index: -1;
 }
 
-.mapWrapper{
-  z-index: 0;
+.map-wrapper{
+  position: absolute;
+  z-index: -1;
 }
 
 .above-map{
