@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
 import Header from './components/header/Header';
 import AddSymbol from "./components/addSymbol/AddSymbol";
 import Home from './components/home/Home';
@@ -13,15 +13,21 @@ import { fetchAllSymbols } from './reducers/SymbolsReducer';
 class InitialApp extends Component {
   constructor(props){
     super(props);
-    this.setMonument = this.setMonument.bind(this)
-    this.state = {
-      currentMonument: null
-    };
+    // this.setMonument = this.setMonument.bind(this)
+    // this.state = {
+    //   currentMonument: null
+    // };
   }
 
-  setMonument(monument){
-    this.setState({currentMonument: monument});
-  }
+  // setMonument(monument){
+  //   this.setState({currentMonument: monument});
+  //
+  //   const history = useHistory();
+  //
+  //   function click(){
+  //     history.push("/detail/" + monument.id);
+  //   }
+  // }
 
   componentDidMount() {
     this.props.fetchAllSymbols();
@@ -42,18 +48,20 @@ class InitialApp extends Component {
           <div className="above-map">
             <Route path="/" exact component={Home}></Route>
             <Route path="/add" exact component={AddSymbol}></Route>
+            <Route path="/detail/:id" exact component={SideBar}></Route>
           </div>
 
-          <SideBar
+          {/*<SideBar
             className="side-bar"
             currentMonumentName={ this.state.currentMonument ? this.state.currentMonument.name :                                             "" }>
-          </SideBar>
+          </SideBar>*/}
 
         {/*<Footer />*/}
       </div>
     );
   }
 }
+
 const mapState = (state) => ({
   symbols: state.symbols,
 });

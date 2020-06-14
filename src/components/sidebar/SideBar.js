@@ -11,13 +11,15 @@ export default class SideBar extends React.Component {
 
   render(){
     return (
-      <aside className="side-bar">
-        {this.props.currentMonumentName}
-      </aside>
+      <aside className="side-bar" />
     );
   }
 }
 
+// function Detail() {
+//   let { id } = this.useParams();
+//   return <aside>{id}</aside>;
+// }
 
 //@carly to do: move this attribution somewhere else
 // attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

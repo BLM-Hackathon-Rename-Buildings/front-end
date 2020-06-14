@@ -3,6 +3,7 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import { connect } from 'react-redux';
 import * as testData from './testdata.json';
+import { useHistory } from 'react-router-dom'
 import './PinMap.css';
 
 class PinMapComponent extends React.Component {
@@ -22,17 +23,34 @@ class PinMapComponent extends React.Component {
     return (
       <Map center={[38, -96]} zoom={5}>
         {testData.monuments.map((monument) => (
-          <Marker
-            key={monument.id}
-            position={[monument.latitude, monument.longitude]}
-            onClick={this.click.bind(this, monument)}
-          />
+          <MarkerButton key={monument.id} monument={monument}/>
         ))}
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       </Map>
     );
   }
 }
+
+function MarkerButton(props) {
+    const history = useHistory();
+
+
+    function handleClick(id) {
+      console.log("clicking: " + id);
+      history.push("/detail/" + id);
+    }
+
+    function click(){
+      console.log("click!")
+    }
+
+    return (
+      <Marker
+        position={[props.monument.latitude, props.monument.longitude]}
+        onClick={() => handleClick(props.monument.id) }
+      />
+    );
+  }
 
 function mapStateToProps(state) {
   return {
