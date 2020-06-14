@@ -18,14 +18,12 @@ export default class SideBar extends React.Component {
   }
 
   remove() {
-    console.log("remove!")
     this.setState(state => ({
       showActions: true
     }));
   }
 
   close() {
-    console.log("close!")
     this.setState(state => ({
       showActions: false
     }));
@@ -65,7 +63,7 @@ export default class SideBar extends React.Component {
           { !this.state.showActions ? null :    <div className="action-takeover">
                 <article className="action-text">
                 <button className="close-button" onClick={this.close}>
-                  <img className="close-icon" src={require("../../assets/x-icon.png")}/>
+                  <img className="close-icon" src={require("../../assets/Cross.svg")}/>
                 </button>
                   <h1 className="action-header"> TAKE ACTION. </h1>
                   <h2>Petitions</h2>
