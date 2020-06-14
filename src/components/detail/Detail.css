@@ -1,10 +1,10 @@
 .side-bar {
-  position: fixed;
   background-color: var(--color-gray);
   color: var(--color-white);
   width: 30vw;
-  height: 88vh;
-  right: 0px;
+  height: 90vh;
+  top: 100px;
+  bottom: 0px;
   z-index: 999;
   font: 16px;
 }
@@ -43,10 +43,10 @@
 }
 
 .action-takeover {
-  display: flex;
+  position: absolute;
   background-color: var(--color-dark-red);
   width: 70vw;
-  height: 100vh;
+  height: 87vh;
 }
 
 .close-button{

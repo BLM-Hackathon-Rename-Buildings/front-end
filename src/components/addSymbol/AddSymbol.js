@@ -6,7 +6,7 @@ const symbolChoices = require("./symbolChoices.json");
 class AddSymbol extends Component {
   render() {
     return (
-      <aside className="side-bar">
+      <aside className="add-side-bar">
         <form className="add-form">
           <h2 className="add-header">Submit a monument.</h2>
 

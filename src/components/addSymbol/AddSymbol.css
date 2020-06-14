@@ -1,9 +1,9 @@
-.side-bar {
+.add-side-bar {
   position: fixed;
   background-color: var(--color-gray);
   color: var(--color-white);
   width: 400px;
-  height: 88vh;
+  height: 87vh;
   right: 0px;
   z-index: 999;
   font: 16px;
@@ -28,14 +28,14 @@
 }
 
 .add-input{
-  font-size: 18px;
+  font-size: 16px;
   line-height: 23px;
-  width: 300px;
+  width: 250px;
 }
 
 .form-input label{
-  font-size: 18px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 23px;
   color: var(--color-white);
 }
 
