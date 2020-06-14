@@ -17,7 +17,7 @@ export default function App() {
           <input
             type="text"
             id="search"
-            class="header-search"
+            className="header-search"
             name="search"
             placeholder="SEARCH ZIP"
           />
