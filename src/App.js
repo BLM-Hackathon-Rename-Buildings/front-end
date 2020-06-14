@@ -1,56 +1,38 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./App.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
   useHistory,
-} from "react-router-dom";
-import Header from "./components/header/Header";
-import AddSymbol from "./components/addSymbol/AddSymbol";
-import Home from "./components/home/Home";
-import Footer from "./components/footer/Footer";
-import PinMap from "./components/pinmap/PinMap";
-import Detail from "./components/detail/Detail";
-import { fetchAllSymbols } from "./reducers/SymbolsReducer";
+} from 'react-router-dom';
+import Header from './components/header/Header';
+import AddSymbol from './components/addSymbol/AddSymbol';
+import Home from './components/home/Home';
+import Footer from './components/footer/Footer';
+import PinMap from './components/pinmap/PinMap';
+import Detail from './components/detail/Detail';
+import { fetchAllSymbols } from './reducers/SymbolsReducer';
 
 class InitialApp extends Component {
   constructor(props) {
     super(props);
-    this.state = { zoom: 5, center: [38, -96] };
   }
   componentDidMount() {
     this.props.fetchAllSymbols();
   }
-  handleLogoClick() {
-    this.setState({ zoom: 5, center: [38, -96] });
-    console.log("logo clicked!");
-  }
-  handleZoomIn(lat, long) {
-    this.setState({
-      zoom: 14,
-      center: [lat, long],
-    });
-  }
+
   render() {
-    console.log("symbols test data", this.props.symbols);
+    console.log('all symbols:', this.props.symbols);
     return (
       <div className="App">
         <div className="map-wrapper">
-          <PinMap
-            className="pin-map"
-            zoom={this.state.zoom}
-            center={this.state.center}
-            handleZoomIn={this.handleZoomIn.bind(this)}
-          ></PinMap>
+          <PinMap className="pin-map"></PinMap>
         </div>
 
-        <Header
-          className="header"
-          handleLogoClick={this.handleLogoClick.bind(this)}
-        />
+        <Header className="header" />
 
         <div className="above-map">
           <Route path="/about" exact component={Home}></Route>
