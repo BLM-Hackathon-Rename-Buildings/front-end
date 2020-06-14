@@ -1,8 +1,12 @@
 .home-nav {
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   background-color: black;
   overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
 }
 
 .home-nav li {
@@ -26,4 +30,25 @@
   padding: 10px 5px;
   text-decoration: none;
   color: white;
+}
+.header-logo {
+  height: 20px;
+  width: 100px;
+  background-image: url("./logo.png");
+  background-position: center;
+  background-size: cover;
+}
+.links-search {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 350px;
+}
+.home-nav input {
+  background: white;
+  color: black;
+  border: none;
+  padding: 5px;
+  font-weight: bold;
 }
