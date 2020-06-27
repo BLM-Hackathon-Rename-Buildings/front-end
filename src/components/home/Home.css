@@ -15,22 +15,59 @@
   color: var(--color-white);
 }
 
-.about-header{
+.about-header {
   font-size: 50px;
   line-height: 40px;
 }
 
-.about-title{
+.about-title {
   font-size: 30px;
   line-height: 30px;
   margin: 0;
   margin-top: 40px;
 }
 
-.about-description, .about-credits{
+.about-description,
+.about-credits {
   line-height: 22px;
 }
 
-.about-credits a{
+.about-credits a {
   color: var(--color-white);
+}
+
+@media only screen and (max-width: 768px) {
+  .home-about {
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+  }
+  .about-img {
+    width: 500px;
+    height: 700px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .about-img {
+    width: 250px;
+    height: 350px;
+  }
+  .about-text {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 50px;
+    color: var(--color-white);
+  }
+
+  .about-header {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .about-title {
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 30px;
+  }
 }
