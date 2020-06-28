@@ -1,11 +1,11 @@
-import React from "react";
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import { Icon } from "leaflet";
-import { iconExisting, iconRemoved } from "./Icons";
-import { connect } from "react-redux";
-import * as testData from "./testdata.json";
-import { useHistory } from "react-router-dom";
-import "./PinMap.css";
+import React from 'react';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Icon } from 'leaflet';
+import { iconExisting, iconRemoved } from './Icons';
+import { connect } from 'react-redux';
+import * as testData from './testdata.json';
+import { useHistory } from 'react-router-dom';
+import './PinMap.css';
 
 class PinMapComponent extends React.Component {
   constructor(props) {
@@ -16,7 +16,6 @@ class PinMapComponent extends React.Component {
   }
 
   render() {
-    console.log("this is printing the symbols object", this.props.symbols.data);
     if (this.props.symbols.data) {
       return (
         <Map center={this.props.center} zoom={this.props.zoom}>
@@ -39,7 +38,7 @@ function MarkerButton(props) {
   const history = useHistory();
 
   function handleClick(monument) {
-    history.push("/detail/" + monument.id);
+    history.push('/detail/' + monument.id);
     props.handleZoomIn(monument.latitude, monument.longitude);
   }
   if (props.monument.removed) {

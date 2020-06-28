@@ -35,8 +35,17 @@ class InitialApp extends Component {
     });
   }
   handleZipZoom(zip) {
-    // this.props.fetchSymbolsByZip()
-    console.log('The zip code searched for:', zip);
+    this.props.fetchSymbolsByZip(zip).then((response) => {
+      console.log('The zip code searched for:', zip);
+      console.log('symbols here', this.props.symbols.data);
+      this.setState({
+        zoom: 15,
+        center: [
+          this.props.symbols.data[0].latitude,
+          this.props.symbols.data[0].longitude,
+        ],
+      });
+    });
   }
   render() {
     return (
@@ -70,8 +79,9 @@ const mapState = (state) => ({
   symbols: state.symbols,
 });
 
-const mapDispatch = (dipatch) => ({
-  fetchAllSymbols: () => dipatch(fetchAllSymbols()),
+const mapDispatch = (dispatch) => ({
+  fetchAllSymbols: () => dispatch(fetchAllSymbols()),
+  fetchSymbolsByZip: (zip) => dispatch(fetchSymbolsByZip(zip)),
 });
 
 const App = connect(mapState, mapDispatch)(InitialApp);

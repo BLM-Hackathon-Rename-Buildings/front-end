@@ -43,11 +43,13 @@ export const fetchAllSymbols = () => {
   };
 };
 
-export const fetchSymbolsByZip = () => {
+export const fetchSymbolsByZip = (zip) => {
   return async (dispatch) => {
-    const symbols = await axios.get('');
+    const symbols = await axios.get(
+      `http://rename-reclaim.herokuapp.com/api/symbols/zip/${zip}/`
+    );
     dispatch(gotAllSymbols(symbols));
-    console.log('dispatch successful');
+    console.log('dispatched for symbols in:', zip);
   };
 };
 
