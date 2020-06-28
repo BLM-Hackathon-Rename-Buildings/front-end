@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./App.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
   useHistory,
-} from "react-router-dom";
-import Header from "./components/header/Header";
-import AddSymbol from "./components/addSymbol/AddSymbol";
-import Home from "./components/home/Home";
-import Footer from "./components/footer/Footer";
-import PinMap from "./components/pinmap/PinMap";
-import Detail from "./components/detail/Detail";
-import { fetchAllSymbols } from "./reducers/SymbolsReducer";
+} from 'react-router-dom';
+import Header from './components/header/Header';
+import AddSymbol from './components/addSymbol/AddSymbol';
+import Home from './components/home/Home';
+import Footer from './components/footer/Footer';
+import PinMap from './components/pinmap/PinMap';
+import Detail from './components/detail/Detail';
+import { fetchAllSymbols } from './reducers/SymbolsReducer';
 
 class InitialApp extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class InitialApp extends Component {
   }
   handleLogoClick() {
     this.setState({ zoom: 5, center: [38, -96] });
-    console.log("logo clicked!");
+    console.log('logo clicked!');
   }
   handleZoomIn(lat, long) {
     this.setState({
@@ -35,7 +35,6 @@ class InitialApp extends Component {
     });
   }
   render() {
-    console.log("symbols test data", this.props.symbols);
     return (
       <div className="App">
         <div className="map-wrapper">

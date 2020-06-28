@@ -1,6 +1,7 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "./Header.css";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import './Header.css';
+import SearchBar from '../header/Searchbar';
 
 export default class Explore extends React.Component {
   render() {
@@ -9,7 +10,7 @@ export default class Explore extends React.Component {
         <Link to="/">
           <img
             className="header-logo"
-            src={require("../../assets/logo.svg")}
+            src={require('../../assets/logo.svg')}
             onClick={this.props.handleLogoClick}
             alt="rename reclaim logo"
           />
@@ -25,7 +26,7 @@ export default class Explore extends React.Component {
             ADD
           </Link>
         </nav>
-        <form>
+        {/* <form>
           <input
             type="text"
             id="search"
@@ -33,7 +34,8 @@ export default class Explore extends React.Component {
             name="search"
             placeholder="SEARCH ZIP"
           />
-        </form>
+        </form> */}
+        <SearchBar />
       </div>
     );
   }
