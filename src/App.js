@@ -14,7 +14,8 @@ import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
 import PinMap from './components/pinmap/PinMap';
 import Detail from './components/detail/Detail';
-import { fetchAllSymbols, fetchSymbolsByZip } from './reducers/SymbolsReducer';
+import { fetchAllSymbols } from './reducers/SymbolsReducer';
+import { fetchSymbolsByZip } from './reducers/SearchResultsReducer';
 
 class InitialApp extends Component {
   constructor(props) {
@@ -36,14 +37,14 @@ class InitialApp extends Component {
   }
   handleZipZoom(zip) {
     this.props.fetchSymbolsByZip(zip).then((response) => {
-      console.log('The zip code searched for:', zip);
-      console.log('symbols here', this.props.symbols.data);
+      console.log('results:', this.props.results.data);
       this.setState({
-        zoom: 15,
+        zoom: 14,
         center: [
-          this.props.symbols.data[0].latitude,
-          this.props.symbols.data[0].longitude,
+          this.props.results.data[0].latitude,
+          this.props.results.data[0].longitude,
         ],
+        showAll: false,
       });
     });
   }
@@ -77,6 +78,7 @@ class InitialApp extends Component {
 
 const mapState = (state) => ({
   symbols: state.symbols,
+  results: state.results,
 });
 
 const mapDispatch = (dispatch) => ({
