@@ -14,7 +14,7 @@ import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
 import PinMap from './components/pinmap/PinMap';
 import Detail from './components/detail/Detail';
-import { fetchAllSymbols } from './reducers/SymbolsReducer';
+import { fetchAllSymbols, fetchSymbolsByZip } from './reducers/SymbolsReducer';
 
 class InitialApp extends Component {
   constructor(props) {
@@ -34,6 +34,10 @@ class InitialApp extends Component {
       center: [lat, long],
     });
   }
+  handleZipZoom(zip) {
+    // this.props.fetchSymbolsByZip()
+    console.log('The zip code searched for:', zip);
+  }
   render() {
     return (
       <div className="App">
@@ -49,6 +53,7 @@ class InitialApp extends Component {
         <Header
           className="header"
           handleLogoClick={this.handleLogoClick.bind(this)}
+          handleZip={this.handleZipZoom.bind(this)}
         />
 
         <div className="above-map">

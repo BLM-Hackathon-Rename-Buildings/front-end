@@ -35,7 +35,7 @@ export default class Explore extends React.Component {
             placeholder="SEARCH ZIP"
           />
         </form> */}
-        <SearchBar />
+        <SearchBar handleZip={this.props.handleZip} />
       </div>
     );
   }

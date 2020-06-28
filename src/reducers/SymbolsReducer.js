@@ -43,6 +43,14 @@ export const fetchAllSymbols = () => {
   };
 };
 
+export const fetchSymbolsByZip = () => {
+  return async (dispatch) => {
+    const symbols = await axios.get('');
+    dispatch(gotAllSymbols(symbols));
+    console.log('dispatch successful');
+  };
+};
+
 export function removeSymbol(item) {
   return async (dispatch) => {
     try {

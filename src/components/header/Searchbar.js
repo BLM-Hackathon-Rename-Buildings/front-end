@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 export default function SearchBar(props) {
+  const [zip, setZip] = useState('');
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    props.handleZip(zip);
+  };
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         id="search"
         className="header-search"
-        name="search"
+        value={zip}
         placeholder="SEARCH ZIP"
+        onChange={(e) => setZip(e.target.value)}
       />
     </form>
   );
