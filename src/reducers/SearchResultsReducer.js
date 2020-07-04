@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const GET_RESULTS = 'GET_RESULTS';
 
 const gotResults = (results) => {

@@ -38,14 +38,17 @@ class InitialApp extends Component {
   handleZipZoom(zip) {
     this.props.fetchSymbolsByZip(zip).then((response) => {
       console.log('results:', this.props.results.data);
-      this.setState({
-        zoom: 14,
-        center: [
-          this.props.results.data[0].latitude,
-          this.props.results.data[0].longitude,
-        ],
-        showAll: false,
-      });
+      //checks length to see if results array populated
+      if (this.props.results.data.length) {
+        this.setState({
+          zoom: 14,
+          center: [
+            this.props.results.data[0].latitude,
+            this.props.results.data[0].longitude,
+          ],
+          showAll: false,
+        });
+      }
     });
   }
   render() {

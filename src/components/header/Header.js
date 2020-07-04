@@ -26,15 +26,6 @@ export default class Explore extends React.Component {
             ADD
           </Link>
         </nav>
-        {/* <form>
-          <input
-            type="text"
-            id="search"
-            className="header-search"
-            name="search"
-            placeholder="SEARCH ZIP"
-          />
-        </form> */}
         <SearchBar handleZip={this.props.handleZip} />
       </div>
     );
