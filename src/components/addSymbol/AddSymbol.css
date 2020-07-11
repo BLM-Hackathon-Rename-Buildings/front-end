@@ -1,0 +1,55 @@
+.add-side-bar {
+  position: fixed;
+  background-color: var(--color-gray);
+  color: var(--color-white);
+  width: 400px;
+  height: 87vh;
+  right: 0px;
+  z-index: 999;
+  font: 16px;
+}
+
+.add-header{
+  font-size: 30px;
+  line-height: 30px;
+  margin: 0px;
+  margin-bottom: 20px;
+  width: 400px;
+
+}
+
+.add-form{
+  width: 200px;
+  padding: 40px;
+}
+
+.form-input{
+  padding-bottom: 15px;
+}
+
+.add-input{
+  font-size: 16px;
+  line-height: 23px;
+  width: 250px;
+}
+
+.form-input label{
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--color-white);
+}
+
+.add-button {
+  position: absolute;
+  bottom: 0px;
+  background-color: var(--color-red);
+  width: 100%;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--color-white);
+  cursor: pointer;
+  height: 80px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+}

@@ -1,0 +1,23 @@
+.leaflet-tile-pane {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.leaflet-container {
+  position: absolute;
+  width: 100%;
+  height: 88vh;
+  top: 12vh;
+  color: grey;
+}
+
+.leaflet-control-container {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.custom-icon svg {
+  height: 20px;
+  width: 20px;
+  transform: translate(-4px, -10px);
+}

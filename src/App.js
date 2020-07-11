@@ -1,44 +1,74 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 import Header from "./components/header/Header";
-import AddBuilding from "./components/addBuilding/AddBuilding";
-import Map from "./components/map/Map";
+import AddSymbol from "./components/addSymbol/AddSymbol";
 import Home from "./components/home/Home";
 import Footer from "./components/footer/Footer";
+import PinMap from "./components/pinmap/PinMap";
+import Detail from "./components/detail/Detail";
+import { fetchAllSymbols } from "./reducers/SymbolsReducer";
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
+class InitialApp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { zoom: 5, center: [38, -96] };
+  }
+  componentDidMount() {
+    this.props.fetchAllSymbols();
+  }
+  handleLogoClick() {
+    this.setState({ zoom: 5, center: [38, -96] });
+    console.log("logo clicked!");
+  }
+  handleZoomIn(lat, long) {
+    this.setState({
+      zoom: 14,
+      center: [lat, long],
+    });
+  }
+  render() {
+    console.log("symbols test data", this.props.symbols);
+    return (
+      <div className="App">
+        <div className="map-wrapper">
+          <PinMap
+            className="pin-map"
+            zoom={this.state.zoom}
+            center={this.state.center}
+            handleZoomIn={this.handleZoomIn.bind(this)}
+          ></PinMap>
+        </div>
 
-      <Route path="/" exact component={Home}></Route>
-      <Route
-        path="/map"
-        exact
-        render={(routerProps) => <Map city="Washington, DC" />}
-      ></Route>
-      <Route path="/add" exact component={AddBuilding}></Route>
-      {/* <Router>
-        {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. }
-        <Switch>
-          <Route path="/add">
-            <AddBuilding />
-          </Route>
-          <Route path="/map">
-            <Map city="Washington, DC" />
-          </Route>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-        </Switch>
-      </Router> */}
+        <Header
+          className="header"
+          handleLogoClick={this.handleLogoClick.bind(this)}
+        />
 
-      <Footer />
-    </div>
-  );
+        <div className="above-map">
+          <Route path="/about" exact component={Home}></Route>
+          <Route path="/add" exact component={AddSymbol}></Route>
+          <Route path="/detail/:id" exact component={Detail}></Route>
+        </div>
+      </div>
+    );
+  }
 }
 
+const mapState = (state) => ({
+  symbols: state.symbols,
+});
+
+const mapDispatch = (dipatch) => ({
+  fetchAllSymbols: () => dipatch(fetchAllSymbols()),
+});
+
+const App = connect(mapState, mapDispatch)(InitialApp);
 export default App;
