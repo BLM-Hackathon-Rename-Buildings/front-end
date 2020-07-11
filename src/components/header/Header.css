@@ -40,7 +40,7 @@
   top: 15px;
 }
 
-.header-link{
+.header-link {
   margin-left: 20px;
 }
 .header-search {
@@ -55,4 +55,20 @@
   height: 25px;
   line-height: 25px;
   z-index: 5;
+}
+@media only screen and (max-width: 480px) {
+  .header-logo {
+    width: 110px;
+    height: 35px;
+    padding-top: 35px;
+  }
+  .header-search {
+    font-size: 14px;
+    width: 85px;
+    /* height: 25px; */
+  }
+
+  .home-nav a {
+    font-size: 14px;
+  }
 }

@@ -11,7 +11,7 @@ export default class Explore extends React.Component {
             className="header-logo"
             src={require("../../assets/logo.svg")}
             onClick={this.props.handleLogoClick}
-            alt="rename reclaim logo"
+            alt="rename logo"
           />
         </Link>
         <nav className="header-links">
