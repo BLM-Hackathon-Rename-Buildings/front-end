@@ -19,13 +19,21 @@ import { fetchAllSymbols } from "./reducers/SymbolsReducer";
 class InitialApp extends Component {
   constructor(props) {
     super(props);
-    this.state = { zoom: 5, center: [38, -96] };
+    if (window.screen.availWidth < 480) {
+      this.state = { zoom: 3, center: [38, -96] };
+    } else {
+      this.state = { zoom: 5, center: [38, -96] };
+    }
   }
   componentDidMount() {
     this.props.fetchAllSymbols();
   }
   handleLogoClick() {
-    this.setState({ zoom: 5, center: [38, -96] });
+    if (window.screen.availWidth < 480) {
+      this.setState({ zoom: 3, center: [38, -96] });
+    } else {
+      this.setState({ zoom: 5, center: [38, -96] });
+    }
     console.log("logo clicked!");
   }
   handleZoomIn(lat, long) {
