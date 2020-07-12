@@ -1,4 +1,4 @@
-.detail{
+.detail {
   width: 100vw;
 }
 
@@ -63,7 +63,7 @@
   color: var(--color-white);
 }
 
-.close-icon{
+.close-icon {
   width: 40px;
   height: auto;
   background-color: none;
@@ -77,4 +77,18 @@
 
 .action-header {
   font-size: 50px;
+}
+@media only screen and (max-width: 480px) {
+  .side-bar,
+  .action-takeover {
+    width: 100vw;
+    height: fit-content;
+  }
+  .action-takeover {
+    z-index: 1000;
+  }
+  .action-text {
+    width: 100vw;
+    box-sizing: border-box;
+  }
 }

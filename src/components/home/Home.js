@@ -10,9 +10,9 @@ class Home extends Component {
           src={require("../../assets/confederate-statue.jpeg")}
           alt="Confederate statue covered in red graffiti."
         />
-      <article className="about-text">
-          <h1 className="about-header"> RENAME. RECLAIM.</h1>
-          <h2 className="about-title" >About</h2>
+        <article className="about-text">
+          <h1 className="about-header"> RENAME. REMOVE.</h1>
+          <h2 className="about-title">About</h2>
           <p className="about-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -24,9 +24,14 @@ class Home extends Component {
           </p>
           <h2 className="about-title">Credits</h2>
           <p className="about-credits">
-            Data courtesy of  <a href="https://www.splcenter.org/">Southern Poverty Law Center.</a>
-          <br/>
-              Mapping by <a href="https://leafletjs.com/">Leaflet and </a> and <a href="https://www.openstreetmap.org/">OpenStreetMap </a>
+            Data courtesy of{" "}
+            <a href="https://www.splcenter.org/">
+              Southern Poverty Law Center.
+            </a>
+            <br />
+            Mapping by <a href="https://leafletjs.com/">
+              Leaflet and{" "}
+            </a> and <a href="https://www.openstreetmap.org/">OpenStreetMap </a>
           </p>
         </article>
       </div>
