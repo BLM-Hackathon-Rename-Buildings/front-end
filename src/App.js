@@ -1,20 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./App.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
   useHistory,
-} from "react-router-dom";
-import Header from "./components/header/Header";
-import AddSymbol from "./components/addSymbol/AddSymbol";
-import Home from "./components/home/Home";
-import Footer from "./components/footer/Footer";
-import PinMap from "./components/pinmap/PinMap";
-import Detail from "./components/detail/Detail";
-import { fetchAllSymbols } from "./reducers/SymbolsReducer";
+} from 'react-router-dom';
+import Header from './components/header/Header';
+import AddSymbol from './components/addSymbol/AddSymbol';
+import Home from './components/home/Home';
+import Footer from './components/footer/Footer';
+import PinMap from './components/pinmap/PinMap';
+import Detail from './components/detail/Detail';
+import { fetchAllSymbols } from './reducers/SymbolsReducer';
+import { fetchSymbolsByZip } from './reducers/SearchResultsReducer';
 
 class InitialApp extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class InitialApp extends Component {
   }
   handleLogoClick() {
     this.setState({ zoom: 5, center: [38, -96] });
-    console.log("logo clicked!");
+    console.log('logo clicked!');
   }
   handleZoomIn(lat, long) {
     this.setState({
@@ -34,8 +35,23 @@ class InitialApp extends Component {
       center: [lat, long],
     });
   }
+  handleZipZoom(zip) {
+    this.props.fetchSymbolsByZip(zip).then((response) => {
+      console.log('results:', this.props.results.data);
+      //checks length to see if results array populated
+      if (this.props.results.data.length) {
+        this.setState({
+          zoom: 14,
+          center: [
+            this.props.results.data[0].latitude,
+            this.props.results.data[0].longitude,
+          ],
+          showAll: false,
+        });
+      }
+    });
+  }
   render() {
-    console.log("symbols test data", this.props.symbols);
     return (
       <div className="App">
         <div className="map-wrapper">
@@ -50,6 +66,7 @@ class InitialApp extends Component {
         <Header
           className="header"
           handleLogoClick={this.handleLogoClick.bind(this)}
+          handleZip={this.handleZipZoom.bind(this)}
         />
 
         <div className="above-map">
@@ -64,10 +81,12 @@ class InitialApp extends Component {
 
 const mapState = (state) => ({
   symbols: state.symbols,
+  results: state.results,
 });
 
-const mapDispatch = (dipatch) => ({
-  fetchAllSymbols: () => dipatch(fetchAllSymbols()),
+const mapDispatch = (dispatch) => ({
+  fetchAllSymbols: () => dispatch(fetchAllSymbols()),
+  fetchSymbolsByZip: (zip) => dispatch(fetchSymbolsByZip(zip)),
 });
 
 const App = connect(mapState, mapDispatch)(InitialApp);

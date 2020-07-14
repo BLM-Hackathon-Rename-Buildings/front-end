@@ -1,26 +1,40 @@
-import React from "react";
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import { Icon } from "leaflet";
-import { iconExisting, iconRemoved } from "./Icons";
-import { connect } from "react-redux";
-import * as testData from "./testdata.json";
-import { useHistory } from "react-router-dom";
-import "./PinMap.css";
+import React from 'react';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Icon } from 'leaflet';
+import { iconExisting, iconRemoved } from './Icons';
+import { connect } from 'react-redux';
+import * as testData from './testdata.json';
+import { useHistory } from 'react-router-dom';
+import './PinMap.css';
 
 class PinMapComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedPin: null,
+      showAll: true, // used to track if pins for all momuments shows
     };
   }
 
   render() {
-    console.log("this is printing the symbols object", this.props.symbols.data);
-    if (this.props.symbols.data) {
+    if (this.props.symbols.data && this.state.showAll) {
       return (
         <Map center={this.props.center} zoom={this.props.zoom}>
           {this.props.symbols.data.map((monument) => (
+            <MarkerButton
+              key={monument.id}
+              monument={monument}
+              handleZoomIn={this.props.handleZoomIn}
+            />
+          ))}
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        </Map>
+      );
+    }
+    if (this.props.results.data && !this.state.showAll) {
+      return (
+        <Map center={this.props.center} zoom={this.props.zoom}>
+          {this.props.results.data.map((monument) => (
             <MarkerButton
               key={monument.id}
               monument={monument}
@@ -39,7 +53,7 @@ function MarkerButton(props) {
   const history = useHistory();
 
   function handleClick(monument) {
-    history.push("/detail/" + monument.id);
+    history.push('/detail/' + monument.id);
     props.handleZoomIn(monument.latitude, monument.longitude);
   }
   if (props.monument.removed) {
@@ -63,7 +77,8 @@ function MarkerButton(props) {
 
 function mapStateToProps(state) {
   return {
-    symbols: state.symbols, //should render test api for now
+    symbols: state.symbols,
+    results: state.results,
   };
 }
 function mapDispatchToProps(dispatch) {
