@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useHistory,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/header/Header';
 import AddSymbol from './components/addSymbol/AddSymbol';
 import Home from './components/home/Home';

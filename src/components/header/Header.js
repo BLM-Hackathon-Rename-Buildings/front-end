@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Header.css';
-import SearchBar from '../header/Searchbar';
+import SearchBar from '../detail/Searchbar';
 
 export default class Explore extends React.Component {
   render() {

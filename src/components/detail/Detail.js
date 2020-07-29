@@ -2,6 +2,7 @@ import React from 'react';
 import './Detail.css';
 import { fetchSymbol } from '../../reducers/OneSymbolReducer';
 import { connect } from 'react-redux';
+import SearchBar from '../detail/SearchBar';
 
 class SideBarComponent extends React.Component {
   constructor(props) {
@@ -21,14 +22,14 @@ class SideBarComponent extends React.Component {
     this.props.fetchSymbol(this.props.match.params.id);
   }
   remove() {
-    this.setState(state => ({
-      showActions: true
+    this.setState((state) => ({
+      showActions: true,
     }));
   }
 
   close() {
-    this.setState(state => ({
-      showActions: false
+    this.setState((state) => ({
+      showActions: false,
     }));
   }
 
@@ -36,6 +37,7 @@ class SideBarComponent extends React.Component {
     return (
       <div className="detail">
         <aside className="side-bar">
+          {/* <SearchBar /> */}
           <img
             src={
               this.props.symbol.url
@@ -54,7 +56,7 @@ class SideBarComponent extends React.Component {
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
               reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. 
+              nulla pariatur.
             </p>
           </div>
 
@@ -70,7 +72,10 @@ class SideBarComponent extends React.Component {
             <div className="action-takeover">
               <article className="action-text">
                 <button className="close-button" onClick={this.close}>
-                  <img className="close-icon" src={require("../../assets/Cross.svg")}/>
+                  <img
+                    className="close-icon"
+                    src={require('../../assets/Cross.svg')}
+                  />
                 </button>
                 <h1 className="action-header"> TAKE ACTION. </h1>
                 <h2>Petitions</h2>

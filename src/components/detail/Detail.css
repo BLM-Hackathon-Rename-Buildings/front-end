@@ -1,13 +1,13 @@
-.detail{
-  width: 100vw;
+.detail {
+  width: 30vw;
 }
 
 .side-bar {
   position: absolute;
-  background-color: var(--color-gray);
+  background-color: var(--color-black);
   color: var(--color-white);
   width: 30vw;
-  height: 87vh;
+  height: 100vh;
   right: 0px;
   top: 0px;
   z-index: 999;
@@ -63,7 +63,7 @@
   color: var(--color-white);
 }
 
-.close-icon{
+.close-icon {
   width: 40px;
   height: auto;
   background-color: none;
