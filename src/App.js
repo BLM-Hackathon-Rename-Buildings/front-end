@@ -57,12 +57,6 @@ class InitialApp extends Component {
           ></PinMap>
         </div>
 
-        {/* <Header
-          className="header"
-          handleLogoClick={this.handleLogoClick.bind(this)}
-          handleZip={this.handleZipZoom.bind(this)}
-        /> */}
-
         <div className="above-map">
           <Route path="/about" exact component={Home}></Route>
           <Route path="/add" exact component={AddSymbol}></Route>

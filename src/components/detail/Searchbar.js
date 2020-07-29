@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Header.css';
+import './Detail.css';
 export default function SearchBar(props) {
   const [zip, setZip] = useState('');
   const handleSubmit = (evt) => {
@@ -11,7 +11,7 @@ export default function SearchBar(props) {
       <input
         type="text"
         id="search"
-        className="header-search"
+        className="search-bar"
         value={zip}
         placeholder="SEARCH ZIP"
         onChange={(e) => setZip(e.target.value)}

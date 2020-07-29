@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './Detail.css';
 import { fetchSymbol } from '../../reducers/OneSymbolReducer';
 import { connect } from 'react-redux';
@@ -37,7 +38,28 @@ class SideBarComponent extends React.Component {
     return (
       <div className="detail">
         <aside className="side-bar">
-          {/* <SearchBar /> */}
+          <div className="site-nav">
+            <Link to="/">
+              <img
+                className="site-logo"
+                src={require('../../assets/logo.svg')}
+                onClick={this.props.handleLogoClick}
+                alt="rename reclaim logo"
+              />
+            </Link>
+            <nav className="nav-links">
+              <Link className="nav-link" to="/">
+                MAP
+              </Link>
+              <Link className="nav-link" to="/about">
+                ABOUT
+              </Link>
+              <Link className="nav-link" to="/add">
+                ADD
+              </Link>
+            </nav>
+            <SearchBar handleZip={this.props.handleZip} />
+          </div>
           <img
             src={
               this.props.symbol.url
@@ -59,10 +81,9 @@ class SideBarComponent extends React.Component {
               nulla pariatur.
             </p>
           </div>
-
           {this.state.showActions ? null : (
             <button className="remove-button" onClick={this.remove}>
-              REMOVE
+              BRING IT DOWN
             </button>
           )}
         </aside>
