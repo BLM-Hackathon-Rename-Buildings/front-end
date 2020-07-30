@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Detail.css';
+import './SideBar.css';
 export default function SearchBar(props) {
   const [zip, setZip] = useState('');
   const handleSubmit = (evt) => {

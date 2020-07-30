@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from './components/header/Header';
 import AddSymbol from './components/addSymbol/AddSymbol';
 import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
 import PinMap from './components/pinmap/PinMap';
-import Detail from './components/detail/Detail';
+import SideBar from './components/sidebar/SideBar';
 import { fetchAllSymbols } from './reducers/SymbolsReducer';
 import { fetchSymbolsByZip } from './reducers/SearchResultsReducer';
 
@@ -60,7 +59,7 @@ class InitialApp extends Component {
         <div className="above-map">
           <Route path="/about" exact component={Home}></Route>
           <Route path="/add" exact component={AddSymbol}></Route>
-          <Route path="/detail/:id" exact component={Detail}></Route>
+          <Route path="/detail/:id" exact component={SideBar}></Route>
         </div>
       </div>
     );

@@ -1,14 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import './Detail.css';
+import './SideBar.css';
 import { fetchSymbol } from '../../reducers/OneSymbolReducer';
 import { connect } from 'react-redux';
-import SearchBar from '../detail/SearchBar';
+import SearchBar from './SearchBar';
 
 class SideBarComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      tab: 'default',
       monumentName: '',
       monumentPhoto:
         'https://media.washtimes.com/media/image/2018/08/08/8_8_2018_ap-172595843326498201.jpg',
@@ -49,13 +50,13 @@ class SideBarComponent extends React.Component {
             </Link>
             <nav className="nav-links">
               <Link className="nav-link" to="/">
-                MAP
+                EXPLORE
               </Link>
               <Link className="nav-link" to="/about">
-                ABOUT
+                SEARCH
               </Link>
               <Link className="nav-link" to="/add">
-                ADD
+                SUBMIT
               </Link>
             </nav>
             <SearchBar handleZip={this.props.handleZip} />
