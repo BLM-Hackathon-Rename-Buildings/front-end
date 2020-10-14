@@ -36,7 +36,7 @@ export function addSymbolCall(symbol) {
 export const fetchAllSymbols = () => {
   return async (dispatch) => {
     const symbols = await axios.get(
-      'http://rename-reclaim.herokuapp.com/api/symbols/all/'
+      'https://rename-reclaim.herokuapp.com/api/symbols/all/'
     );
     dispatch(gotAllSymbols(symbols));
     console.log('dispatch successful');

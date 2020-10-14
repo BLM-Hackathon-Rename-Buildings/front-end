@@ -13,7 +13,7 @@ export function fetchSymbol(id) {
   return async (dispatch, getState) => {
     try {
       const { data } = await axios.get(
-        `http://rename-reclaim.herokuapp.com/api/symbols/${id}/`
+        `https://rename-reclaim.herokuapp.com/api/symbols/${id}/`
       );
       dispatch(getSymbol(data));
       console.log('fetch symbol for', id, 'was successful');

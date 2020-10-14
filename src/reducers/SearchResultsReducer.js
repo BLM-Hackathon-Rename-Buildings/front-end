@@ -11,7 +11,7 @@ const gotResults = (results) => {
 export const fetchSymbolsByZip = (zip) => {
   return async (dispatch) => {
     const results = await axios.get(
-      `http://rename-reclaim.herokuapp.com/api/symbols/zip/${zip}/`
+      `https://rename-reclaim.herokuapp.com/api/symbols/zip/${zip}/`
     );
     dispatch(gotResults(results));
     console.log('dispatched for symbols in:', zip);
